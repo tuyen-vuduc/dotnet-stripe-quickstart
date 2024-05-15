@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-stripe-qs", "dotnet-stripe-qs\dotnet-stripe-qs.csproj", "{11DCA836-451D-49DF-A7FE-1E4365AAABC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dotnet.Stripe.Android.QuickStart", "src\Dotnet.Stripe.Android.QuickStart\Dotnet.Stripe.Android.QuickStart.csproj", "{11DCA836-451D-49DF-A7FE-1E4365AAABC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dotnet.Stripe.QuickStart.Host", "src\Dotnet.Stripe.QuickStart.Host\Dotnet.Stripe.QuickStart.Host.csproj", "{DB0545C2-33CF-49C7-BE5C-13C83001CD75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{11DCA836-451D-49DF-A7FE-1E4365AAABC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11DCA836-451D-49DF-A7FE-1E4365AAABC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{11DCA836-451D-49DF-A7FE-1E4365AAABC7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DB0545C2-33CF-49C7-BE5C-13C83001CD75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB0545C2-33CF-49C7-BE5C-13C83001CD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB0545C2-33CF-49C7-BE5C-13C83001CD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB0545C2-33CF-49C7-BE5C-13C83001CD75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
