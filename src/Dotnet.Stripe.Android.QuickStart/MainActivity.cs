@@ -52,7 +52,7 @@ public partial class MainActivity : AppCompatActivity
         payButton = FindViewById<Button>(Resource.Id.pay_button);
         payButton.Click += onPayClicked;
         // TODO: Use .HTTP to call for clientSecret
-        //payButton.Enabled = false;
+        payButton.Enabled = false;
 
         paymentSheet = new PaymentSheet(this, this);
 
@@ -62,12 +62,12 @@ public partial class MainActivity : AppCompatActivity
         addressLauncher = new AddressLauncher(this, this);
 
         // TODO CANNOT DO for now: https://github.com/xamarin/xamarin-android/issues/8542
-        //fetchPaymentIntent()
-        //    .ContinueWith(t =>
-        //    {
-        //        Console.WriteLine("DONE");
-        //    })
-        //    .ConfigureAwait(false);
+        fetchPaymentIntent()
+            .ContinueWith(t =>
+            {
+                Console.WriteLine("DONE");
+            })
+            .ConfigureAwait(false);
     }
 
     private async Task fetchPaymentIntent()
@@ -81,7 +81,7 @@ public partial class MainActivity : AppCompatActivity
                 }
               ],
         };
-        var httpClient = new HttpClient(new CustomClientHandler())
+        var httpClient = new HttpClient()
         {
             BaseAddress = new Uri(ExampleApplication.BACKEND_URL),
         };
@@ -98,7 +98,7 @@ public partial class MainActivity : AppCompatActivity
         var data = JsonSerializer.Deserialize<PaymentIntentCreateResposne>(dataInJSON);
 
         paymentIntentClientSecret = data.ClientSecret;
-        RunOnUiThread(()=>payButton.Enabled = true);
+        RunOnUiThread(()=> payButton.Enabled = true);
         Log.Info(TAG, "Retrieved PaymentIntent");
     }
 
@@ -182,8 +182,4 @@ public record PaymentIntentCreateResposne
 {
     [JsonPropertyName("clientSecret")]
     public string ClientSecret { get; set; }
-}
-
-public class CustomClientHandler : DelegatingHandler
-{
 }

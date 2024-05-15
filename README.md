@@ -37,13 +37,19 @@ partial class Program
 
 ![Run up the web server without debugging](./assets/start-webserver-without-debugging.png)
 
+3/ Expose your local webserver with [ngrok](https://ngrok.com)
+
+```
+ngrok http https://localhost:4243
+```
+
 ## Android
 
-The quick start is the get-started guide how to use Stripe Android SDK binding libraries created by [tuyen-vuduc](https://github.com/tuyen-vuduc). The source of the binding libraries can be found [here](https://github.com/tuyen-vuduc/dotnet-binding-utils). This is based on [the official quick start guide](https://docs.stripe.com/payments/quickstart?client=java) from Stripe.
+ This quick start is based on [the official quick start guide](https://docs.stripe.com/payments/quickstart?client=java) from Stripe. It will guide you how to use Stripe Android SDK binding libraries created by [tuyen-vuduc](https://github.com/tuyen-vuduc). The source of the binding libraries can be found [here](https://github.com/tuyen-vuduc/dotnet-binding-utils).
 
-To understand all functionalities of Stripe Android SDK, please check out [the official document](https://docs.stripe.com/libraries/android) and [the official repository](https://github.com/stripe/stripe-android).
+> To understand all functionalities of Stripe Android SDK, please check out [the official document](https://docs.stripe.com/libraries/android) and [the official repository](https://github.com/stripe/stripe-android).
 
-### Preparation
+### Steps to run the sample app
 
 1/ Create your `ExampleApplication.dev.cs` with below details
 
@@ -62,25 +68,34 @@ To understand all functionalities of Stripe Android SDK, please check out [the o
 partial class ExampleApplication
 {
     public static string PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
-    public static string BACKEND_URL = "YOUR_BACKEND_URL";
+    public static string BACKEND_URL = "YOUR_BACKEND_URL"; // Please use above generated ngrok URL here
 }
 ```
 
-2/ Execute one .HTTP call in `src\Dotnet.Stripe.QuickStart.Host\Dotnet.Stripe.QuickStart.Host.http`
+2/ Run up and try out the sample app
 
-3/ Copy the clientSecret and assign to below variable in `MainActivity.cs`
+### Steps to use in your app
 
-```cs
-    ...
-    private string paymentIntentClientSecret = "{FILL_VIA_.HTTP_CALL}";
-    ...
+1/ Add the following NuGet feed to your `nuget.config`
+
+> Stripe Android SDK depends on some libraries which have the binding ones created by Xamarin, but not yet updated. I created my own for the mising version and uploaded to [MyGet](https://myget.org) as the workaround in the meanwhile.
+
+```
+<add key="Tuyen - MyGet" value="https://www.myget.org/F/tuyen-vuduc/api/v3/index.json" />
 ```
 
-4/ Run up the sample app
+2/ Add required NuGet packages
+
+> We need `Xamarin.KotlinX.Serialization.Core` added directly because it wasn't detected as an indirect dependency for Stripe Android SDK via [my dotnet-binding-util](https://github.com/tuyen-vuduc/dotnet-binding-utils) when creating the binding library.
+
+```
+<PackageReference Include="Com.Stripe.StripeAndroid" Version="20.40.4" />
+<PackageReference Include="Xamarin.KotlinX.Serialization.Core" Version="1.6.3.1" />
+```
 
 ## iOS
 
-TBC
+TBD
 
 ## MAINTAINER
 
@@ -94,13 +109,11 @@ OR
 
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/tuyen-vuduc)
 
-[:heart: Sponsor](https://github.com/sponsors/yourGitHubUserName)
-
 ## LICENSE
 
 The 3rd libraries will follow their associated licenses. This project itself is license under MIT license.
 
-Copyright 2024 Tuyen Vu
+Copyright 2024 tuyen-vuduc
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
