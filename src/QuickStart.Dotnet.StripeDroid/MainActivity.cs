@@ -9,7 +9,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
 
-namespace Dotnet.Stripe.Android.QuickStart;
+namespace QuickStart.Dotnet.StripeDroid;
 
 [Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light.DarkActionBar")]
 public partial class MainActivity : AppCompatActivity

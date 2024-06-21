@@ -2,7 +2,7 @@
 using Com.Stripe.Android;
 using Android.Runtime;
 
-namespace Dotnet.Stripe.Android.QuickStart;
+namespace QuickStart.Dotnet.StripeDroid;
 
 /// <summary>
 /// https://github.com/stripe/stripe-android/blob/master/example/src/main/java/com/stripe/example/ExampleApplication.kt
