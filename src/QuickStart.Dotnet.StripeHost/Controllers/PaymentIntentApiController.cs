@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using QuickStart.Dotnet.Shared;
 using Stripe;
 
 namespace QuickStart.Dotnet.StripeHost
@@ -23,7 +23,7 @@ namespace QuickStart.Dotnet.StripeHost
                 },
             });
 
-            return new { clientSecret = paymentIntent.ClientSecret };
+            return new PaymentIntentCreateResposne { ClientSecret = paymentIntent.ClientSecret };
         }
 
         private int CalculateOrderAmount(Item[] items)
@@ -32,20 +32,6 @@ namespace QuickStart.Dotnet.StripeHost
             // Calculate the order total on the server to prevent
             // people from directly manipulating the amount on the client
             return 1400;
-        }
-
-        public class Item
-        {
-            [JsonProperty("id")]
-            public string Id { get; set; }
-            [JsonProperty("Amount")]
-            public string Amount { get; set; }
-        }
-
-        public class PaymentIntentCreateRequest
-        {
-            [JsonProperty("items")]
-            public Item[] Items { get; set; }
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace QuickStart.Dotnet.StripeIos;
+﻿using QuickStart.Dotnet.Shared;
+using StripeCore;
+
+namespace QuickStart.Dotnet.StripeIos;
 
 [Register ("AppDelegate")]
 public class AppDelegate : UIApplicationDelegate {
@@ -8,9 +11,11 @@ public class AppDelegate : UIApplicationDelegate {
 	}
 
 	public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
-	{
-		// create a new window instance based on the screen size
-		Window = new UIWindow (UIScreen.MainScreen.Bounds);
+    {
+        StripeAPI.DefaultPublishableKey = ClientHelper.PUBLISHABLE_KEY;
+
+        // create a new window instance based on the screen size
+        Window = new UIWindow (UIScreen.MainScreen.Bounds);
 
 		// create a UIViewController with a single UILabel
 		var vc = new UIViewController ();
