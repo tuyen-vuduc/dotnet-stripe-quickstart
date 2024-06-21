@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0-android34</TargetFramework>
     <SupportedOSPlatformVersion>26</SupportedOSPlatformVersion>
-    <RootNamespace>Dotnet.Stripe.Android.QuickStart</RootNamespace>
+    <RootNamespace>QuickStart.Dotnet.StripeDroid</RootNamespace>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
