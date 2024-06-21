@@ -12,9 +12,10 @@
     <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Com.Stripe.StripeAndroid" Version="20.40.4" />
-    <PackageReference Include="Org.Jetbrains.Kotlinx.KotlinxSerializationJson" Version="1.6.2" />
+    <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.9.0.3" />
+    <PackageReference Include="Com.Stripe.StripeAndroid" Version="20.46.0" />
+    <PackageReference Include="Org.Jetbrains.Kotlinx.KotlinxSerializationJson" Version="1.6.3" />
     <PackageReference Include="System.Text.Json" Version="8.0.3" />
-    <PackageReference Include="Xamarin.KotlinX.Serialization.Core" Version="1.6.3.1" />
+    <PackageReference Include="Xamarin.KotlinX.Serialization.Core" Version="1.6.3.3" />
   </ItemGroup>
 </Project>

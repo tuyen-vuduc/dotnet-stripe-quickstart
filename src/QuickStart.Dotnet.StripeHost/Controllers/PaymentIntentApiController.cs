@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Stripe;
 
-namespace Dotnet.Stripe.QuickStart.Host.Controllers
+namespace QuickStart.Dotnet.StripeHost
 {
     [ApiController]
     [Route("create-payment-intent")]
