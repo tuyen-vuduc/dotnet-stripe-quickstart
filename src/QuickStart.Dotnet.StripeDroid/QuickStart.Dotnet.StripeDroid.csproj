@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-android34</TargetFramework>
+    <SupportedOSPlatformVersion>26</SupportedOSPlatformVersion>
+    <RootNamespace>QuickStart.Dotnet.StripeDroid</RootNamespace>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationId>dev.tuyentv.stripe.quickstart</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>latestmajor</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>latestmajor</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.9.0.3" />
+    <PackageReference Include="Com.Stripe.StripeAndroid" Version="20.46.0" />
+    <PackageReference Include="Org.Jetbrains.Kotlinx.KotlinxSerializationJson" Version="1.6.3" />
+    <PackageReference Include="System.Text.Json" Version="8.0.3" />
+    <PackageReference Include="Xamarin.KotlinX.Serialization.Core" Version="1.6.3.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\QuickStart.Dotnet.StripeHost\Shared.cs">
+      <Link>Shared.cs</Link>
+    </Compile>
+    <Compile Include="..\QuickStart.Dotnet.StripeHost\Shared.dev.cs">
+      <Link>Shared.dev.cs</Link>
+    </Compile>
+  </ItemGroup>
+</Project>

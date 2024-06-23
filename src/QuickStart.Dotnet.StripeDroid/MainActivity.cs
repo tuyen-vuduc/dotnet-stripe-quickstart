@@ -8,8 +8,10 @@ using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
+using QuickStart.Dotnet.Shared;
+using Android.Gms.Common.Apis;
 
-namespace Dotnet.Stripe.Android.QuickStart;
+namespace QuickStart.Dotnet.StripeDroid;
 
 [Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/Theme.AppCompat.Light.DarkActionBar")]
 public partial class MainActivity : AppCompatActivity
@@ -62,44 +64,22 @@ public partial class MainActivity : AppCompatActivity
         addressLauncher = new AddressLauncher(this, this);
 
         // TODO CANNOT DO for now: https://github.com/xamarin/xamarin-android/issues/8542
-        fetchPaymentIntent()
+        ClientHelper.FetchPaymentIntent()
             .ContinueWith(t =>
             {
-                Console.WriteLine("DONE");
+                var (ok, msg) = t.Result;
+                if (!ok)
+                {
+                    showAlert("API Error", msg);
+                    return;
+                }
+
+                paymentIntentClientSecret = msg;
+
+                RunOnUiThread(() => payButton.Enabled = true);
+                Log.Info(TAG, "Retrieved PaymentIntent");
             })
             .ConfigureAwait(false);
-    }
-
-    private async Task fetchPaymentIntent()
-    {
-        var request = new PaymentIntentCreateRequest
-        {
-            Items = [
-                new Item {
-                    Id = Guid.NewGuid().ToString(),
-                    Amount = (new Random().NextDouble() * 100).ToString(),
-                }
-              ],
-        };
-        var httpClient = new HttpClient()
-        {
-            BaseAddress = new Uri(ExampleApplication.BACKEND_URL),
-        };
-
-        var response = await httpClient.PostAsJsonAsync("/create-payment-intent", request);
-        
-        if (!response.IsSuccessStatusCode)
-        {
-            showAlert("API Error", $"API returned status code: {response.StatusCode.ToString()} {(int)response.StatusCode}");
-            return;
-        }
-
-        var dataInJSON = await response.Content.ReadAsStringAsync();
-        var data = JsonSerializer.Deserialize<PaymentIntentCreateResposne>(dataInJSON);
-
-        paymentIntentClientSecret = data.ClientSecret;
-        RunOnUiThread(()=> payButton.Enabled = true);
-        Log.Info(TAG, "Retrieved PaymentIntent");
     }
 
     private void showAlert(string title, string message)
@@ -130,7 +110,7 @@ public partial class MainActivity : AppCompatActivity
     private void onAddressClicked(object sender, EventArgs e)
     {
         addressLauncher.Present(
-          ExampleApplication.PUBLISHABLE_KEY,
+          ClientHelper.PUBLISHABLE_KEY,
           configuration
         );
     }
@@ -162,24 +142,4 @@ partial class MainActivity : IAddressLauncherResultCallback
             // TODO: Handle cancel
         }
     }
-}
-
-public record Item
-{
-    [JsonPropertyName("id")]
-    public string Id { get; set; }
-    [JsonPropertyName("Amount")]
-    public string Amount { get; set; }
-}
-
-public record PaymentIntentCreateRequest
-{
-    [JsonPropertyName("items")]
-    public Item[] Items { get; set; }
-}
-
-public record PaymentIntentCreateResposne
-{
-    [JsonPropertyName("clientSecret")]
-    public string ClientSecret { get; set; }
 }

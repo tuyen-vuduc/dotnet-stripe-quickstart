@@ -10,26 +10,28 @@
 
 ### Steps
 
-1/ Create your `Program.dev.cs`
+1/ Create your `Shared.dev.cs` by copying `Shared.dev.cs.sample`
 
 1.a/ File location
 
 ```
 |--src
-    |-- Dotnet.Stripe.QuickStart.Host
-        |-- Program.cs
-        |-- Program.dev.cs        <------      YOUR_FILE_HERE
+    |-- QuickStart.Dotnet.StripeHost
+        |-- Shared.cs
+        |-- Shared.dev.cs        <------      YOUR_FILE_HERE
 ```
 
 1.b/ File content
 
 ```cs
-partial class Program
+namespace QuickStart.Dotnet.Shared;
+
+// TODO Replace placeholders with yours
+partial class ClientHelper
 {
-    static Program()
-    {
-        StripeConfiguration.ApiKey = "YOUR_API_KEY";
-    }
+    public const string API_KEY = "YOUR_API_KEY";
+    public const string PUBLISHABLE_KEY = "YOUR_DEFAULT_PUBLISHABLE_KEY";
+    public const string BACKEND_URL = "YOUR_BACKEND_URL"; // Replace with the generated link at step #3
 }
 ```
 
@@ -40,6 +42,7 @@ partial class Program
 3/ Expose your local webserver with [ngrok](https://ngrok.com)
 
 ```
+# ngrok http https://localhost:4242 # Use this if HTTPS is N/A
 ngrok http https://localhost:4243
 ```
 
@@ -51,27 +54,7 @@ ngrok http https://localhost:4243
 
 ### Steps to run the sample app
 
-1/ Create your `ExampleApplication.dev.cs` with below details
-
-1.a/ File location
-
-```
-|--src
-    |-- Dotnet.Stripe.Android.QuickStart
-        |-- ExampleApplication.cs
-        |-- ExampleApplication.dev.cs        <------      YOUR_FILE_HERE
-```
-
-1.b/ File content
-
-```cs
-partial class ExampleApplication
-{
-    public static string PUBLISHABLE_KEY = "YOUR_PUBLISHABLE_KEY";
-    public static string BACKEND_URL = "YOUR_BACKEND_URL"; // Please use above generated ngrok URL here
-}
-```
-
+1/ Select the right project and a device/an emulator
 2/ Run up and try out the sample app
 
 ### Steps to use in your app
@@ -95,7 +78,14 @@ partial class ExampleApplication
 
 ## iOS
 
-TBD
+This quick start is based on [the official quick start guide](https://docs.stripe.com/payments/quickstart?client=ios) from Stripe. It will guide you how to use Stripe iOS SDK binding libraries created by [tuyen-vuduc](https://github.com/tuyen-vuduc). The source of the binding libraries can be found [here](https://github.com/tuyen-vuduc/dotnet-binding-utils).
+
+> To understand all functionalities of Stripe iOS SDK, please check out [the official document](https://docs.stripe.com/libraries/ios) and [the official repository](https://github.com/stripe/stripe-ios).
+
+### Steps to run the sample app
+
+1/ Select the right project and a device/simulator
+2/ Run up and try out the sample app
 
 ## MAINTAINER
 
