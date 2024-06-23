@@ -36,10 +36,25 @@ public partial class CheckoutViewController : UIViewController
             payButton.BottomAnchor.ConstraintEqualTo(View.SafeAreaLayoutGuide.BottomAnchor, constant: -16),
         });
 
+        var label = new UILabel();
+        label.Text = "Hello Stripe for .NET iOS";
+        label.TextColor = UIColor.SystemPurple;
+        label.TranslatesAutoresizingMaskIntoConstraints = false;
+        label.Font = UIFont.SystemFontOfSize(32);
+        label.TextAlignment = UITextAlignment.Center;
+
+        View.AddSubview(label);
+
+        NSLayoutConstraint.ActivateConstraints(new[] {
+            label.LeadingAnchor.ConstraintEqualTo(View.SafeAreaLayoutGuide.LeadingAnchor, constant: 32),
+            label.TrailingAnchor.ConstraintEqualTo(View.SafeAreaLayoutGuide.TrailingAnchor, constant: -32),
+            label.TopAnchor.ConstraintEqualTo(View.SafeAreaLayoutGuide.TopAnchor, constant: 128),
+        });
+
         ClientHelper.FetchPaymentIntent()
             .ContinueWith(t =>
             {
-                var (ok, msg) = t.Result;
+                    var (ok, msg) = t.Result;
                 if (!ok)
                 {
                     showAlert("API Error", msg);
