@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStart.Dotnet.StripeHos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStart.Dotnet.StripeIos", "src\QuickStart.Dotnet.StripeIos\QuickStart.Dotnet.StripeIos.csproj", "{8DD8E9D9-742D-45C4-B1FA-E25CE320CB47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickStart.Dotnet.StripeMaui", "src\QuickStart.Dotnet.StripeMaui\QuickStart.Dotnet.StripeMaui.csproj", "{1F1278CA-1659-4E52-AE11-6A2F2105AFA7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{8DD8E9D9-742D-45C4-B1FA-E25CE320CB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DD8E9D9-742D-45C4-B1FA-E25CE320CB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DD8E9D9-742D-45C4-B1FA-E25CE320CB47}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F1278CA-1659-4E52-AE11-6A2F2105AFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F1278CA-1659-4E52-AE11-6A2F2105AFA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F1278CA-1659-4E52-AE11-6A2F2105AFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F1278CA-1659-4E52-AE11-6A2F2105AFA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -93,6 +93,7 @@ This quick start is based on [the official quick start guide](https://docs.strip
 
 NOTE > [Check its repo](https://github.com/tuyen-vuduc/dotnet-maui-stripe) for further info and customization.
 
+0/ Open `dotnet-stripe-qs.maui.sln`
 1/ Select `StripeMaui` project as the start up and prepare a device/an emulator
 2/ Run up and try out the sample app for each platform
 
