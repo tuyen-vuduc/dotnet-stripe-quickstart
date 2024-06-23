@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using QuickStart.Dotnet.Shared;
+using QuickStart.Dotnet.Stripe;
 using Stripe;
 
 namespace QuickStart.Dotnet.StripeHost

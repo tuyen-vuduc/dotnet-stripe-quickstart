@@ -3,7 +3,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace QuickStart.Dotnet.Shared;
+namespace QuickStart.Dotnet.Stripe;
 
 public static partial class ClientHelper
 {

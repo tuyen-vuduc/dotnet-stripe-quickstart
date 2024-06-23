@@ -1,4 +1,4 @@
-﻿using QuickStart.Dotnet.Shared;
+﻿using QuickStart.Dotnet.Stripe;
 using StripeCore;
 
 namespace QuickStart.Dotnet.StripeIos;
@@ -12,7 +12,7 @@ public class AppDelegate : UIApplicationDelegate {
 
 	public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
     {
-        StripeAPI.DefaultPublishableKey = ClientHelper.PUBLISHABLE_KEY;
+        StripeAPI.DefaultPublishableKey = ClientHelper.DEFAULT_PUBLISHABLE_KEY;
 
         // create a new window instance based on the screen size
         Window = new UIWindow (UIScreen.MainScreen.Bounds);

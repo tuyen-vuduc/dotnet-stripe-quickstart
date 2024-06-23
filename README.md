@@ -87,6 +87,10 @@ This quick start is based on [the official quick start guide](https://docs.strip
 1/ Select the right project and a device/simulator
 2/ Run up and try out the sample app
 
+## MAUI
+
+[Check its repo](https://github.com/tuyen-vuduc/dotnet-maui-stripe) for steps.
+
 ## MAINTAINER
 
 This project is maintained by [tuyen-vuduc](https://github.com/tuyen-vuduc) in his spare time.<br>

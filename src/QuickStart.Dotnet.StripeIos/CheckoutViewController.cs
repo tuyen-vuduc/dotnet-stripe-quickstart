@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
 using CoreFoundation;
-using QuickStart.Dotnet.Shared;
+using QuickStart.Dotnet.Stripe;
 using StripeCore;
 using TVStripePaymentSheet;
 

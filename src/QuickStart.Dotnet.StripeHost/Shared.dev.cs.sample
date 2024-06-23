@@ -1,4 +1,4 @@
-﻿namespace QuickStart.Dotnet.Shared;
+﻿namespace QuickStart.Dotnet.Stripe;
 
 partial class ClientHelper
 {

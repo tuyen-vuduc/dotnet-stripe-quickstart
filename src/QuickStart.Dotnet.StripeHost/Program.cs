@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-StripeConfiguration.ApiKey = QuickStart.Dotnet.Shared.ClientHelper.API_KEY;
+StripeConfiguration.ApiKey = QuickStart.Dotnet.Stripe.ClientHelper.API_KEY;
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

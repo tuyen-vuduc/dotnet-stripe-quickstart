@@ -1,7 +1,7 @@
 ﻿using Android.OS;
 using Com.Stripe.Android;
 using Android.Runtime;
-using QuickStart.Dotnet.Shared;
+using QuickStart.Dotnet.Stripe;
 
 namespace QuickStart.Dotnet.StripeDroid;
 
@@ -21,7 +21,7 @@ public partial class ExampleApplication : Application
 
     public override void OnCreate()
     {
-        PaymentConfiguration.Init(this, ClientHelper.PUBLISHABLE_KEY);
+        PaymentConfiguration.Init(this, ClientHelper.DEFAULT_PUBLISHABLE_KEY);
 
         var threadPolicyBuilder =
             new StrictMode.ThreadPolicy.Builder()

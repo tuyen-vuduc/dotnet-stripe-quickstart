@@ -8,7 +8,7 @@ using AlertDialog = AndroidX.AppCompat.App.AlertDialog;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Net.Http.Json;
-using QuickStart.Dotnet.Shared;
+using QuickStart.Dotnet.Stripe;
 using Android.Gms.Common.Apis;
 
 namespace QuickStart.Dotnet.StripeDroid;
@@ -110,7 +110,7 @@ public partial class MainActivity : AppCompatActivity
     private void onAddressClicked(object sender, EventArgs e)
     {
         addressLauncher.Present(
-          ClientHelper.PUBLISHABLE_KEY,
+          ClientHelper.DEFAULT_PUBLISHABLE_KEY,
           configuration
         );
     }
