@@ -24,7 +24,7 @@ public partial class CheckoutViewController : UIViewController
         payButton.Layer.CornerRadius = 5;
         payButton.ContentEdgeInsets = new(top: 12, left: 12, bottom: 12, right: 12);
 
-        payButton.TouchDragInside += Pay;
+        payButton.TouchUpInside += Pay;
         payButton.TranslatesAutoresizingMaskIntoConstraints = false;
         payButton.Enabled = false;
 

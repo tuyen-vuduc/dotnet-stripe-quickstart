@@ -32,4 +32,7 @@
       <Link>Shared.dev.cs</Link>
     </Compile>
   </ItemGroup>
+  <Target Name="DisplayMessages" AfterTargets="_CompileNativeExecutable" BeforeTargets="_LinkNativeExecutable">
+    <Message Text="_StripeSDKBaseFolder: $(_StripeSDKBaseFolder)" Importance="High" />
+  </Target>
 </Project>
