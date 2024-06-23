@@ -24,13 +24,13 @@
 1.b/ File content
 
 ```cs
-namespace QuickStart.Dotnet.Shared;
+namespace QuickStart.Dotnet.Stripe;
 
 // TODO Replace placeholders with yours
 partial class ClientHelper
 {
     public const string API_KEY = "YOUR_API_KEY";
-    public const string PUBLISHABLE_KEY = "YOUR_DEFAULT_PUBLISHABLE_KEY";
+    public const string DEFAULT_PUBLISHABLE_KEY = "YOUR_DEFAULT_PUBLISHABLE_KEY";
     public const string BACKEND_URL = "YOUR_BACKEND_URL"; // Replace with the generated link at step #3
 }
 ```
@@ -42,8 +42,7 @@ partial class ClientHelper
 3/ Expose your local webserver with [ngrok](https://ngrok.com)
 
 ```
-# ngrok http https://localhost:4242 # Use this if HTTPS is N/A
-ngrok http https://localhost:4243
+ngrok http https://localhost:4242
 ```
 
 ## Android
@@ -59,21 +58,13 @@ ngrok http https://localhost:4243
 
 ### Steps to use in your app
 
-1/ Add the following NuGet feed to your `nuget.config`
-
-> Stripe Android SDK depends on some libraries which have the binding ones created by Xamarin, but not yet updated. I created my own for the mising version and uploaded to [MyGet](https://myget.org) as the workaround in the meanwhile.
-
-```
-<add key="Tuyen - MyGet" value="https://www.myget.org/F/tuyen-vuduc/api/v3/index.json" />
-```
-
-2/ Add required NuGet packages
+1/ Add required NuGet packages
 
 > We need `Xamarin.KotlinX.Serialization.Core` added directly because it wasn't detected as an indirect dependency for Stripe Android SDK via [my dotnet-binding-util](https://github.com/tuyen-vuduc/dotnet-binding-utils) when creating the binding library.
 
 ```
-<PackageReference Include="Com.Stripe.StripeAndroid" Version="20.40.4" />
-<PackageReference Include="Xamarin.KotlinX.Serialization.Core" Version="1.6.3.1" />
+    <PackageReference Include="Com.Stripe.StripeAndroid" Version="20.46.0" />
+    <PackageReference Include="Xamarin.KotlinX.Serialization.Core" Version="1.6.3.3" />
 ```
 
 ## iOS
@@ -85,11 +76,28 @@ This quick start is based on [the official quick start guide](https://docs.strip
 ### Steps to run the sample app
 
 1/ Select the right project and a device/simulator
+
 2/ Run up and try out the sample app
+
+### Steps to use in your app
+
+1/ Add required NuGet packages
+
+```
+    <PackageReference Include="TVStripePaymentSheet.iOS" Version="23.27.5" />
+```
 
 ## MAUI
 
 [Check its repo](https://github.com/tuyen-vuduc/dotnet-maui-stripe) for steps.
+
+### Steps to use in your app
+
+1/ Add required NuGet packages
+
+```
+    <PackageReference Include="Stripe.MAUI" Version="1.204600.232705" />
+```
 
 ## MAINTAINER
 
