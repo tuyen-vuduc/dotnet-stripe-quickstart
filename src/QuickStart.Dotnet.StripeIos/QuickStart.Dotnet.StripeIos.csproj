@@ -4,16 +4,25 @@
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
-    <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <CreatePackage>false</CreatePackage>
+    <LangVersion>latestmajor</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <CreatePackage>false</CreatePackage>
+    <MtouchInterpreter></MtouchInterpreter>
+    <OnDemandResourcesPrefetchOrder></OnDemandResourcesPrefetchOrder>
+    <LangVersion>latestmajor</LangVersion>
+    <MtouchInterpreter></MtouchInterpreter>
+    <OnDemandResourcesPrefetchOrder></OnDemandResourcesPrefetchOrder>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="StripePaymentSheet.iOS" Version="23.27.4" />
+    <PackageReference Include="TVStripePaymentSheet.iOS" Version="23.27.5" />
+    <PackageReference Include="StripeCore.iOS" Version="23.27.5" />
+    <PackageReference Include="Stripe3DS2.iOS" Version="23.27.5" />
+    <PackageReference Include="StripePayments.iOS" Version="23.27.5" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\QuickStart.Dotnet.StripeHost\Shared.cs">

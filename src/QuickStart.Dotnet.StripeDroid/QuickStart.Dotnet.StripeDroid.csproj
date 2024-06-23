@@ -11,6 +11,12 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
     <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>latestmajor</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>latestmajor</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.9.0.3" />
     <PackageReference Include="Com.Stripe.StripeAndroid" Version="20.46.0" />

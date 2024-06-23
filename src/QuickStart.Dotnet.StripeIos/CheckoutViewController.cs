@@ -3,7 +3,7 @@ using System.Diagnostics;
 using CoreFoundation;
 using QuickStart.Dotnet.Shared;
 using StripeCore;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using TVStripePaymentSheet;
 
 namespace QuickStart.Dotnet.StripeIos;
 
@@ -70,24 +70,36 @@ public partial class CheckoutViewController : UIViewController
             return;
         }
 
-        //var configuration = PaymentSheet.Configuration()
-        //configuration.merchantDisplayName = "Example, Inc."
+        var configuration = new TSPSConfiguration();
+        configuration.MerchantDisplayName = "Example, Inc.";
 
+        var paymentSheet = new TSPSPaymentSheet(
+            paymentIntentClientSecret: paymentIntentClientSecret,
+            configuration: configuration);
 
-        //let paymentSheet = PaymentSheet(
-        //    paymentIntentClientSecret: paymentIntentClientSecret,
-        //    configuration: configuration)
+        paymentSheet.PresentFrom(this, (paymentResult, error) => {
+            switch (paymentResult) {
+                case TSPSPaymentSheetResult.Completed:
+                    DisplayAlert("Payment complete!");
+                    break;
+                case TSPSPaymentSheetResult.Canceled:
+                    Debug.WriteLine("Payment canceled!");
+                    break;
+                default:
+                    DisplayAlert("Payment failed", error?.LocalizedDescription);
+                    break;
+            }
+        });
+    }
 
-        //paymentSheet.present(from: self) {
-        //    [weak self] (paymentResult) in
-        //    switch paymentResult {
-        //        case .completed:
-        //            self?.displayAlert(title: "Payment complete!")
-        //    case .canceled:
-        //            print("Payment canceled!")
-        //    case .failed(let error):
-        //            self?.displayAlert(title: "Payment failed", message: error.localizedDescription)
-        //    }
-        //}
+    private void DisplayAlert(string title, string? message = default)
+    {
+        InvokeOnMainThread(() =>
+        {
+            var alert = UIAlertController.Create(title, message, UIAlertControllerStyle.Alert);
+            alert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+
+            PresentViewController(alert, true, null);
+        });
     }
 }
