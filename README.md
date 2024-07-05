@@ -42,7 +42,7 @@ partial class ClientHelper
 3/ Expose your local webserver with [ngrok](https://ngrok.com)
 
 ```
-ngrok http https://localhost:4242
+ngrok http http://localhost:4242
 ```
 
 ## Android
